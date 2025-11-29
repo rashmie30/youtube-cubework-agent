@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from youtube_shorts_agent import YouTubeShortsAgent, load_channels_from_config
 
-def handler(request):
+def handler_func(request):
     """Vercel serverless function handler."""
     try:
         # Get max downloads from query params (for n8n flexibility)
@@ -85,7 +85,7 @@ def handler(request):
 
 
 # Vercel Python runtime handler
-def main(request):
-    """Main entry point for Vercel."""
-    return handler(request)
+def handler(request):
+    """Main entry point for Vercel - called automatically."""
+    return handler_func(request)
 
