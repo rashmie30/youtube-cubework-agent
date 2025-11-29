@@ -85,6 +85,8 @@ def handler_func(request):
 
 
 # Vercel Python runtime handler
+# Vercel automatically calls the 'handler' function
+# This is the entry point that Vercel expects
 def handler(request):
     """Main entry point for Vercel - called automatically."""
     return handler_func(request)
