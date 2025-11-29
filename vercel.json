@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/trigger.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/trigger",
+      "dest": "api/trigger.py"
+    }
+  ],
+  "functions": {
+    "api/trigger.py": {
+      "maxDuration": 300,
+      "memory": 3008
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/trigger",
+      "schedule": "0 * * * *"
+    }
+  ]
+}

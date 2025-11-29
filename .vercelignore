@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+downloaded_shorts/
+yt-shorts/
+*.log
+.env.local
+.venv
+env/
+ENV/
+
