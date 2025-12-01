@@ -250,8 +250,8 @@ class YouTubeShortsAgent:
         try:
             # Query to check if video exists
             query = """
-            query CheckYoutube($where: JSON!) {
-                youtubes(where: $where, limit: 1) {
+            query CheckYoutubeShort($where: JSON!) {
+                youtubeShorts(where: $where, limit: 1) {
                     id
                     originalYtLink
                 }
@@ -321,15 +321,15 @@ class YouTubeShortsAgent:
             return True
         
         try:
-            # GraphQL mutation to create YouTube record
+            # GraphQL mutation to create YouTube Short record
             # Based on schema introspection:
-            # - Mutation: createYoutube
-            # - Input type: mutationYoutubeInput
+            # - Mutation: createYoutubeShort
+            # - Input type: mutationYoutubeShortInput
             # - Required fields: originalYtLink, bucketLink
             # - Status: _status enum (draft or published)
             mutation = """
-            mutation CreateYoutube($data: mutationYoutubeInput!) {
-                createYoutube(data: $data, draft: false) {
+            mutation CreateYoutubeShort($data: mutationYoutubeShortInput!) {
+                createYoutubeShort(data: $data, draft: false) {
                     id
                     originalYtLink
                     bucketLink
