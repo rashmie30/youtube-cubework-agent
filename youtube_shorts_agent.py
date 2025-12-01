@@ -286,8 +286,8 @@ class YouTubeShortsAgent:
                 if "errors" in result:
                     logger.debug(f"CMS check error: {result['errors']}")
                     return False
-                youtubes = result.get("data", {}).get("youtubes", [])
-                return len(youtubes) > 0
+                youtube_shorts = result.get("data", {}).get("youtubeShorts", [])
+                return len(youtube_shorts) > 0
             
             return False
         except Exception as exc:
